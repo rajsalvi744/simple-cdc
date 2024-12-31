@@ -39,13 +39,13 @@ This project demonstrates the value of Change Data Capture in modern data engine
 ## 🔧 How to Run  
 1. **Clone the Repository**:  
    ```bash  
-   git clone https://github.com/your-username/real-time-cdc-system.git  
-   cd real-time-cdc-system  
+   git clone https://github.com/rajsalvi744/simple-cdc.git
+   cd simple-cdc  
 2. Set Up Docker:
 Make sure Docker is installed, and then start the services:
    ```bash
    docker-compose up  
-3. Configure Kafka Connect: Access the Kafka Connect dashboard at http://localhost:<port> (replace <port> with the configured port).
+3. Configure Kafka Connect: Access the Kafka Connect dashboard at http://localhost:9021 (replace <port> with the configured port).
 Add connectors for PostgreSQL and ClickHouse as per the provided configuration files.
 4. Test the Pipeline:
 Perform insert, update, and delete operations on the PostgreSQL database.
