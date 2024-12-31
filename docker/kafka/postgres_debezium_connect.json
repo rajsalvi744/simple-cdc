@@ -1,0 +1,26 @@
+{
+  "name": "postgres-debezium",
+  "config": {
+    "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+    "plugin.name": "pgoutput",
+    "database.hostname": "postgres",
+    "database.user": "cdc",
+    "database.password": "cdc",
+    "database.port": "5432",
+    "database.dbname": "transactions",
+    "topic.prefix": "cdc",
+    "output.data.format": "JSON",
+    "json.output.decimal.format": "NUMERIC",
+    "snapshot.mode": "initial",
+    "tombstones.on.delete": "false",
+    "decimal.handling.mode": "double",
+    "transforms": "set_topic,flatten",
+    "transforms.flatten.type": "org.apache.kafka.connect.transforms.Flatten$Value",
+    "transforms.flatten.delimiter": "_",
+    "transforms.set_topic.type": "org.apache.kafka.connect.transforms.RegexRouter",
+    "transforms.set_topic.regex": ".*",
+    "transforms.set_topic.replacement": "transactions_scd",
+    "value.converter.schemas.enable": "false",
+    "after.state.only": "false"
+  }
+}
